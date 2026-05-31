@@ -369,4 +369,8 @@ def get_sales_report():
     return events, stats
 
 
-init_db()
+if USE_SQLITE or DATABASE_URL:
+    try:
+        init_db()
+    except Exception as exc:
+        print(f"[WARN] Database init failed: {exc}")

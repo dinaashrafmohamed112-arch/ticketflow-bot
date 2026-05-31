@@ -1,0 +1,11 @@
+.env
+local.db
+temp_tickets/
+__pycache__/
+*.pyc
+*.pyo
+.Python
+.venv/
+venv/
+*.xlsx
+*.pdf

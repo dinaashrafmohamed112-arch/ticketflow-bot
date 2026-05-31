@@ -1,0 +1,41 @@
+🚀 Just shipped: TicketFlow — a production-ready Telegram bot for event ticket booking
+
+Over the past week, I built a full-stack ticketing system from scratch. Here's what's under the hood:
+
+🎟️ What it does:
+• Users browse events, book seats, and pay — all inside Telegram
+• Instant PDF e-tickets delivered automatically after payment
+• Waitlist system that auto-notifies users when seats free up
+• Promo codes with expiry dates and usage limits
+• Full Arabic / English support
+
+👑 Admin dashboard:
+• Real-time stats: confirmed, pending, cancelled
+• Add/delete events via conversational UI
+• Export sales reports as Excel or PDF
+• Broadcast messages to all confirmed attendees
+
+💳 Payment integration:
+Integrated Paymob v2 API (Egypt's #1 payment gateway) supporting Credit Card, Vodafone Cash, and InstaPay — with HMAC webhook verification for security.
+
+🛠️ Tech stack:
+→ Python + python-telegram-bot
+→ PostgreSQL (psycopg2) for persistent storage
+→ ReportLab for PDF generation
+→ openpyxl for Excel reports
+→ httpx for async API calls
+→ Deployed on Railway (24/7 uptime)
+
+🔒 Production considerations I handled:
+• Rate limiting to prevent spam
+• Zero secrets in codebase (env-based config)
+• Graceful error handling with fallback flows
+• Webhook HMAC verification
+
+The most interesting challenge was handling concurrent bookings — making sure two users can't book the last seat simultaneously using PostgreSQL transactions.
+
+GitHub: github.com/dinaashrafmohamed112-arch/ticket-bot
+
+What would you add next? 👇
+
+#Python #TelegramBot #Backend #OpenSource #Paymob #PostgreSQL #SoftwareEngineering

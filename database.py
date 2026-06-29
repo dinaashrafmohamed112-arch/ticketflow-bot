@@ -270,7 +270,7 @@ def get_payment_by_booking(booking_id):
 def validate_promo_code(code):
     conn = get_connection(); cur = _dict_cur(conn)
     now = _now_expr()
-    active = "active=1" if USE_SQLITE else "active=TRUE"
+    active = "active=1" if USE_SQLITE else "active=1"
     cur.execute(
         f"""SELECT * FROM promo_codes WHERE UPPER(code)=UPPER({PH})
             AND {active} AND used_count<max_uses
@@ -291,7 +291,7 @@ def add_promo_code(code, discount_pct, max_uses=100, expires_at=None):
     cur.execute(
         f"""INSERT INTO promo_codes (code,discount_pct,max_uses,expires_at)
             VALUES({PH},{PH},{PH},{PH}) ON CONFLICT(code) DO UPDATE
-            SET discount_pct={PH},max_uses={PH},active={1 if USE_SQLITE else 'TRUE'}""",
+            SET discount_pct={PH},max_uses={PH},active=1""",
         (code.upper(), discount_pct, max_uses, expires_at, discount_pct, max_uses),
     )
     conn.commit(); cur.close(); conn.close()
